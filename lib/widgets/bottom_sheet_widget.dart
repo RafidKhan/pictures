@@ -29,10 +29,13 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Center(
-          child: Text(
-            "𝓟𝓲𝓬𝓽𝓾𝓻𝓮𝓼",
-            style: TextStyle(
-                color: Colors.white, fontSize: 40, fontWeight: FontWeight.w100),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Text(
+              "𝓟𝓲𝓬𝓽𝓾𝓻𝓮𝓼",
+              style: TextStyle(
+                  color: Colors.white, fontSize: 40, fontWeight: FontWeight.w100),
+            ),
           ),
         ),
       ),

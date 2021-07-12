@@ -45,7 +45,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    getImage();
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -61,36 +60,38 @@ class _HomePageScreenState extends State<HomePageScreen> {
         child: Column(
           children: [
             Expanded(
-              child: showImage==false? Center(child: CircularProgressIndicator()) : ListView.builder(
-                itemCount: imageData.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        GestureDetector(
-                          child: Container(
-                            child:
-                                Image.network(networkImages.elementAt(index)),
+              child: showImage == false
+                  ? Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      itemCount: imageData.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Column(
+                            children: [
+                              GestureDetector(
+                                child: Container(
+                                  child: Image.network(
+                                      networkImages.elementAt(index)),
+                                ),
+                                onTap: () {
+                                  showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      context: context,
+                                      builder: (builder) {
+                                        return BottomSheetWidget(
+                                          name: userNames.elementAt(index),
+                                          date: creationDate.elementAt(index),
+                                          image: networkImages.elementAt(index),
+                                        );
+                                      });
+                                },
+                              ),
+                            ],
                           ),
-                          onTap: () {
-                            showModalBottomSheet(
-                                isScrollControlled: true,
-                                context: context,
-                                builder: (builder) {
-                                  return BottomSheetWidget(
-                                    name: userNames.elementAt(index),
-                                    date: creationDate.elementAt(index),
-                                    image: networkImages.elementAt(index),
-                                  );
-                                });
-                          },
-                        ),
-                      ],
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
             ),
           ],
         ),

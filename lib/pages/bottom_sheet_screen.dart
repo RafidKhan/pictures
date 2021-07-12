@@ -34,11 +34,11 @@ class _ShowImageScreenState extends State<ShowImageScreen> {
               topRight: const Radius.circular(10.0))),
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(top: 100.0),
+          padding: EdgeInsets.only(top: 50.0),
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(40.0),
+                padding: const EdgeInsets.all(30.0),
                 child: Container(
                   child: Image.network(setImage),
                 ),

@@ -61,7 +61,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
+              child: showImage==false? Center(child: CircularProgressIndicator()) : ListView.builder(
                 itemCount: imageData.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
